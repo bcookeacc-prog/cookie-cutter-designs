@@ -872,7 +872,7 @@ select {
 /* ===== PAGE HERO (inner pages) ===== */
 .page-hero {
     background: #FEF3F8;
-    padding: 80px 24px 60px;
+    padding: 44px 24px 36px;
     text-align: center;
     border-bottom: 2px solid rgba(200,120,138,0.15);
     margin-top: var(--nav-h);
