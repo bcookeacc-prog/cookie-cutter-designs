@@ -197,6 +197,7 @@ if (orderForm) {
             sizes:             (orderForm.sizes             && orderForm.sizes.value.trim())       || '',
             colors:            (orderForm.colors            && orderForm.colors.value.trim())      || '',
             designDescription: (orderForm.designDescription && orderForm.designDescription.value.trim()) || '',
+            designFile:        (orderForm.designFile        && orderForm.designFile.value.trim())        || '',
             neededBy:          (orderForm.neededBy          && orderForm.neededBy.value)           || '',
             budget:            (orderForm.budget            && orderForm.budget.value.trim())      || '',
             heardFrom:         (orderForm.heardFrom         && orderForm.heardFrom.value)          || '',

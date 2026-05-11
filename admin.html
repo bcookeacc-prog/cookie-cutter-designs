@@ -866,6 +866,7 @@ function viewOrder(id) {
         ['Sizes', o.sizes || '—'],
         ['Colors / Style', o.colors || '—'],
         ['Design Description', o.designDescription || '—'],
+        ['Design File', o.designFile ? `<a href="${o.designFile}" target="_blank" style="color:var(--gold);word-break:break-all">View File ↗</a>` : '—'],
         ['Needed By', o.neededBy || '—'],
         ['Budget', o.budget || '—'],
         ['Heard From', o.heardFrom || '—'],

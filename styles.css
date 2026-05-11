@@ -937,6 +937,20 @@ select {
     gap: 8px;
 }
 
+/* ===== FORM HINTS & OPTIONAL LABELS ===== */
+.form-optional {
+    font-size: 0.78rem;
+    color: var(--gray);
+    font-weight: 400;
+    font-style: italic;
+}
+.form-hint {
+    font-size: 0.78rem;
+    color: var(--gray);
+    margin-top: 0.4rem;
+    line-height: 1.5;
+}
+
 /* ===== MULTI-ITEM CHECKLIST ===== */
 .multi-item-grid {
     display: grid;
