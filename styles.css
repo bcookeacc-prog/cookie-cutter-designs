@@ -349,9 +349,25 @@ h5 { font-size: 0.95rem; font-weight: 600; letter-spacing: 0.06em; text-transfor
     transform: translateY(-50%);
     width: min(520px, 45vw);
     pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.hero-bg-geo svg {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 0; left: 0;
     opacity: 0.55;
 }
-.hero-bg-geo svg { width: 100%; height: auto; }
+.hero-geo-logo {
+    position: relative;
+    z-index: 2;
+    width: 72%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 50%;
+}
 
 .hero-content {
     position: relative;
@@ -811,26 +827,6 @@ select {
     white-space: nowrap;
 }
 
-/* ===== HOME PAGE: HERO CENTERED LOGO ===== */
-.hero-logo-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    z-index: 2;
-    padding: 2rem 0 0;
-}
-
-.hero-logo-center img {
-    width: 320px;
-    height: 320px;
-    object-fit: contain;
-    border-radius: 50%;
-}
-
-@media (max-width: 768px) {
-    .hero-logo-center img { width: 220px; height: 220px; }
-}
 
 /* ===== DANCING SCRIPT TAGLINE ===== */
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap');
