@@ -883,7 +883,7 @@ select {
     background: var(--blush);
     padding: 6rem 2rem;
 }
-.markets-banner .section-header h2 { color: var(--white); }
+.markets-banner .section-header h2 { color: var(--black); }
 
 /* ===== CTA SECTION ===== */
 .cta-section {
