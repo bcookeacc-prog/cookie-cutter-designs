@@ -802,6 +802,36 @@ select {
     .hero-buttons .btn-primary, .hero-buttons .btn-outline { width: 100%; text-align: center; }
 }
 
+/* ===== HOME PAGE: TEXT NAV LOGO ===== */
+.nav-text-logo {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--gold);
+    white-space: nowrap;
+}
+
+/* ===== HOME PAGE: HERO CENTERED LOGO ===== */
+.hero-logo-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    padding: 2rem 0 0;
+}
+
+.hero-logo-center img {
+    width: 320px;
+    height: 320px;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+    .hero-logo-center img { width: 220px; height: 220px; }
+}
+
 /* ===== DANCING SCRIPT TAGLINE ===== */
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&display=swap');
 
