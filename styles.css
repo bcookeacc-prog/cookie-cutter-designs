@@ -17,7 +17,7 @@
     --font-heading: 'Playfair Display', Georgia, serif;
     --font-body: 'Montserrat', sans-serif;
 
-    --nav-h: 80px;
+    --nav-h: 120px;
     --radius: 8px;
     --shadow: 0 4px 20px rgba(0,0,0,0.08);
     --shadow-lg: 0 8px 32px rgba(0,0,0,0.13);
@@ -157,7 +157,7 @@ h5 { font-size: 0.95rem; font-weight: 600; letter-spacing: 0.06em; text-transfor
 }
 
 .nav-logo img {
-    height: 58px;
+    height: 116px;
     width: auto;
     object-fit: contain;
 }
