@@ -697,21 +697,21 @@ select {
 /* ===== FOOTER ===== */
 .footer {
     background: var(--gold);
-    padding: 5rem 0 0;
+    padding: 3rem 0 0;
 }
 
 .footer-grid {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1.5fr;
-    gap: 3rem;
-    padding-bottom: 3rem;
+    gap: 2rem;
+    padding-bottom: 2rem;
     border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
 .footer-brand .footer-logo {
-    height: 300px;
+    height: 250px;
     width: auto;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1rem;
     filter: brightness(0);
     opacity: 0.75;
 }
