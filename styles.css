@@ -1,6 +1,8 @@
 /* ===== ROOT VARIABLES ===== */
 :root {
     --black: #1C1C1C;
+    --dark-rose: #7A2840;
+    --blush: #FDE8F2;
     --gold: #C9943A;
     --gold-hover: #B8832E;
     --gold-pale: #F5EDD8;
@@ -325,7 +327,7 @@ h5 { font-size: 0.95rem; font-weight: 600; letter-spacing: 0.06em; text-transfor
     min-height: 100vh;
     display: flex;
     align-items: center;
-    background: var(--black);
+    background: var(--blush);
     overflow: hidden;
     padding-top: var(--nav-h);
 }
@@ -374,7 +376,7 @@ h5 { font-size: 0.95rem; font-weight: 600; letter-spacing: 0.06em; text-transfor
 }
 
 .hero h1 {
-    color: var(--white);
+    color: var(--black);
     margin-bottom: 1.5rem;
     letter-spacing: -0.02em;
 }
@@ -384,7 +386,7 @@ h5 { font-size: 0.95rem; font-weight: 600; letter-spacing: 0.06em; text-transfor
 }
 
 .hero p {
-    color: rgba(255,255,255,0.7);
+    color: var(--gray);
     font-size: 1.08rem;
     line-height: 1.85;
     margin-bottom: 2.75rem;
@@ -486,9 +488,9 @@ h5 { font-size: 0.95rem; font-weight: 600; letter-spacing: 0.06em; text-transfor
 /* ===== HOW IT WORKS ===== */
 .how-it-works {
     padding: 7rem 0;
-    background: var(--black);
+    background: var(--blush);
 }
-.how-it-works .section-header h2 { color: var(--white); }
+.how-it-works .section-header h2 { color: var(--black); }
 .how-it-works .section-tag { color: var(--gold); }
 
 .steps-grid {
@@ -512,8 +514,8 @@ h5 { font-size: 0.95rem; font-weight: 600; letter-spacing: 0.06em; text-transfor
     line-height: 1;
     margin-bottom: 1rem;
 }
-.step h4 { color: var(--white); margin-bottom: 0.75rem; }
-.step p { color: rgba(255,255,255,0.58); font-size: 0.88rem; line-height: 1.75; }
+.step h4 { color: var(--black); margin-bottom: 0.75rem; }
+.step p { color: var(--gray); font-size: 0.88rem; line-height: 1.75; }
 
 .step-divider {
     width: 50px; height: 1px; flex-shrink: 0;
@@ -639,7 +641,7 @@ select {
 
 /* ===== FOOTER ===== */
 .footer {
-    background: var(--black);
+    background: var(--dark-rose);
     padding: 5rem 0 0;
 }
 
@@ -802,7 +804,7 @@ select {
 
 /* ===== MARKETS BANNER ===== */
 .markets-banner {
-    background: var(--black);
+    background: var(--blush);
     padding: 6rem 2rem;
 }
 .markets-banner .section-header h2 { color: var(--white); }
