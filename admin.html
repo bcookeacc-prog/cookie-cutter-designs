@@ -510,6 +510,7 @@
         <!-- TABS -->
         <div class="admin-tabs">
             <button class="admin-tab active" onclick="switchTab('orders', this)">Order Requests</button>
+            <button class="admin-tab" onclick="switchTab('signups', this)">Market Signups</button>
             <button class="admin-tab" onclick="switchTab('settings', this)">Settings</button>
         </div>
 
@@ -532,6 +533,28 @@
                         </tr>
                     </thead>
                     <tbody id="ordersBody"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- MARKET SIGNUPS TAB -->
+        <div class="tab-panel" id="tab-signups">
+            <div class="orders-toolbar">
+                <h3>Market Notification Signups</h3>
+                <input class="orders-search" type="text" placeholder="Search signups..." oninput="filterSignups(this.value)">
+            </div>
+            <div class="orders-table-wrap">
+                <table class="orders-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="signupsBody"></tbody>
                 </table>
             </div>
         </div>
@@ -572,7 +595,9 @@
             <div class="settings-card" style="border-color:#FFD0D0">
                 <h3 style="color:#9B3F56">Danger Zone</h3>
                 <p>Permanently delete all order request data. This cannot be undone.</p>
-                <button class="btn-outline" style="border-color:#c0392b;color:#c0392b" onclick="clearAllOrders()">Clear All Orders</button>
+                <button class="btn-outline" style="border-color:#c0392b;color:#c0392b;margin-bottom:10px" onclick="clearAllOrders()">Clear All Orders</button>
+                <p style="margin-top:12px">Permanently delete all market notification signups. This cannot be undone.</p>
+                <button class="btn-outline" style="border-color:#c0392b;color:#c0392b" onclick="clearAllSignups()">Clear All Signups</button>
             </div>
 
         </div>
@@ -628,6 +653,7 @@ function showDashboard() {
     document.getElementById('adminWrap').style.display = 'block';
     renderStats();
     renderOrders();
+    renderSignups();
     loadSocialInputs();
 }
 
@@ -653,11 +679,13 @@ function renderStats() {
     const inProgressCount = orders.filter(o => o.status === 'in-progress').length;
     const completeCount = orders.filter(o => o.status === 'complete').length;
 
+    const signups = getSignups();
     document.getElementById('adminStats').innerHTML = `
         <div class="stat-card"><span class="stat-num">${orders.length}</span><span class="stat-label">Total Orders</span></div>
         <div class="stat-card"><span class="stat-num" style="color:var(--pink)">${newCount}</span><span class="stat-label">New</span></div>
         <div class="stat-card"><span class="stat-num">${inProgressCount}</span><span class="stat-label">In Progress</span></div>
         <div class="stat-card"><span class="stat-num" style="color:#2E7D32">${completeCount}</span><span class="stat-label">Completed</span></div>
+        <div class="stat-card"><span class="stat-num" style="color:var(--gold)">${signups.length}</span><span class="stat-label">Market Signups</span></div>
     `;
 }
 
@@ -757,6 +785,69 @@ function clearAllOrders() {
     renderOrders();
     renderStats();
     showToast('All orders cleared.');
+}
+
+// ── MARKET SIGNUPS ───────────────────────────────
+function getSignups() {
+    return JSON.parse(localStorage.getItem('ccd_notify') || '[]');
+}
+
+let signupFilter = '';
+
+function renderSignups(filter) {
+    if (filter !== undefined) signupFilter = filter;
+    const signups = getSignups();
+    const q = signupFilter.toLowerCase();
+    const filtered = q
+        ? signups.filter(s =>
+            (s.firstName + ' ' + s.lastName).toLowerCase().includes(q) ||
+            (s.email || '').toLowerCase().includes(q) ||
+            (s.phone || '').toLowerCase().includes(q)
+          )
+        : signups;
+
+    const tbody = document.getElementById('signupsBody');
+    if (!tbody) return;
+
+    if (filtered.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="5"><div class="empty-state">
+            <p>${signups.length === 0 ? 'No signups yet — they\'ll appear here when someone clicks "Stay in the Loop."' : 'No signups match your search.'}</p>
+        </div></td></tr>`;
+        return;
+    }
+
+    tbody.innerHTML = filtered.map(s => `
+        <tr>
+            <td style="white-space:nowrap;color:var(--gray);font-size:0.8rem">${formatDate(s.submittedAt)}</td>
+            <td><strong>${s.firstName || ''} ${s.lastName || ''}</strong></td>
+            <td><a href="mailto:${s.email}" style="color:var(--gold)">${s.email || '—'}</a></td>
+            <td>${s.phone || '—'}</td>
+            <td>
+                <button class="action-btn danger" onclick="deleteSignup(${s.id})">Delete</button>
+            </td>
+        </tr>
+    `).join('');
+}
+
+function filterSignups(val) {
+    renderSignups(val);
+}
+
+function deleteSignup(id) {
+    if (!confirm('Remove this signup? This cannot be undone.')) return;
+    const signups = getSignups().filter(s => s.id !== id);
+    localStorage.setItem('ccd_notify', JSON.stringify(signups));
+    renderSignups();
+    renderStats();
+    showToast('Signup removed.');
+}
+
+function clearAllSignups() {
+    if (!confirm('Delete ALL market signups permanently? This cannot be undone.')) return;
+    localStorage.removeItem('ccd_notify');
+    renderSignups();
+    renderStats();
+    showToast('All signups cleared.');
 }
 
 // ── ORDER DETAIL MODAL ───────────────────────────
