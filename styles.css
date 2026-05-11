@@ -709,7 +709,7 @@ select {
 }
 
 .footer-brand .footer-logo {
-    height: 600px;
+    height: 300px;
     width: auto;
     margin-bottom: 1.25rem;
     filter: brightness(0);
