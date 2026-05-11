@@ -17,7 +17,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: #7A2840;
+            background: #FDE8F2;
             padding: 24px;
         }
 
@@ -28,7 +28,8 @@
             width: 100%;
             max-width: 400px;
             text-align: center;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            box-shadow: 0 12px 40px rgba(201,148,58,0.2);
+            border: 1.5px solid rgba(201,148,58,0.25);
         }
 
         .login-logo {
@@ -90,13 +91,14 @@
         .admin-wrap { display: none; }
 
         .admin-header {
-            background: #7A2840;
+            background: var(--gold);
             padding: 18px 32px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 16px;
             flex-wrap: wrap;
+            border-bottom: 2px solid var(--gold-hover);
         }
 
         .admin-header-left {
@@ -110,14 +112,14 @@
         .admin-header-title {
             font-family: var(--font-heading);
             font-size: 1.1rem;
-            color: var(--white);
+            color: var(--black);
         }
 
         .admin-header-title span {
             display: block;
             font-family: var(--font-body);
             font-size: 0.72rem;
-            color: var(--gold);
+            color: rgba(0,0,0,0.6);
             font-weight: 600;
             letter-spacing: 0.15em;
             text-transform: uppercase;
@@ -131,8 +133,8 @@
 
         .admin-logout {
             background: none;
-            border: 1px solid rgba(255,255,255,0.2);
-            color: rgba(255,255,255,0.65);
+            border: 1px solid rgba(0,0,0,0.2);
+            color: rgba(0,0,0,0.65);
             padding: 7px 16px;
             border-radius: 20px;
             font-family: var(--font-body);
@@ -142,8 +144,8 @@
         }
 
         .admin-logout:hover {
-            border-color: var(--gold);
-            color: var(--gold);
+            border-color: var(--black);
+            color: var(--black);
         }
 
         .admin-body {
@@ -495,7 +497,7 @@
             </div>
         </div>
         <div class="admin-header-right">
-            <a href="index.html" style="color:rgba(255,255,255,0.5);font-size:0.8rem;text-decoration:none">View Site</a>
+            <a href="index.html" style="color:rgba(0,0,0,0.5);font-size:0.8rem;text-decoration:none">View Site</a>
             <button class="admin-logout" onclick="doLogout()">Log Out</button>
         </div>
     </div>
