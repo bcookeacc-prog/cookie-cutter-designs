@@ -678,7 +678,7 @@ select {
 
 /* ===== FOOTER ===== */
 .footer {
-    background: var(--dark-rose);
+    background: var(--gold);
     padding: 5rem 0 0;
 }
 
@@ -694,11 +694,11 @@ select {
     height: 65px;
     width: auto;
     margin-bottom: 1.25rem;
-    filter: brightness(0) invert(1);
-    opacity: 0.85;
+    filter: brightness(0);
+    opacity: 0.75;
 }
 .footer-brand p {
-    color: rgba(255,255,255,0.55);
+    color: rgba(0,0,0,0.65);
     font-size: 0.88rem;
     line-height: 1.8;
     margin-bottom: 1.5rem;
@@ -710,15 +710,15 @@ select {
     width: 38px; height: 38px;
     border-radius: 8px;
     display: flex; align-items: center; justify-content: center;
-    border: 1px solid rgba(255,255,255,0.14);
-    color: rgba(255,255,255,0.55);
+    border: 1px solid rgba(0,0,0,0.2);
+    color: rgba(0,0,0,0.55);
     transition: var(--transition);
 }
-.social-link:hover { border-color: var(--gold); color: var(--gold); background: rgba(201,148,58,0.08); }
+.social-link:hover { border-color: var(--white); color: var(--white); background: rgba(255,255,255,0.15); }
 .social-link svg { width: 17px; height: 17px; }
 
 .footer-col h5 {
-    color: var(--white);
+    color: var(--black);
     font-family: var(--font-body);
     font-size: 0.75rem;
     font-weight: 700;
@@ -728,29 +728,29 @@ select {
 }
 .footer-col ul { display: flex; flex-direction: column; gap: 0.7rem; }
 .footer-col li a {
-    color: rgba(255,255,255,0.55);
+    color: rgba(0,0,0,0.6);
     font-size: 0.88rem;
     transition: color 0.2s;
 }
-.footer-col li a:hover { color: var(--gold); }
+.footer-col li a:hover { color: var(--white); }
 
 .contact-item {
     display: flex;
     align-items: flex-start;
     gap: 0.65rem;
-    color: rgba(255,255,255,0.55);
+    color: rgba(0,0,0,0.6);
     font-size: 0.88rem;
     margin-bottom: 1rem;
 }
-.contact-item svg { width: 16px; height: 16px; flex-shrink: 0; color: var(--gold); margin-top: 2px; }
+.contact-item svg { width: 16px; height: 16px; flex-shrink: 0; color: var(--black); margin-top: 2px; }
 .contact-item a { transition: color 0.2s; }
-.contact-item a:hover { color: var(--gold); }
-.contact-note { color: rgba(255,255,255,0.45); font-size: 0.83rem; line-height: 1.7; }
+.contact-item a:hover { color: var(--white); }
+.contact-note { color: rgba(0,0,0,0.55); font-size: 0.83rem; line-height: 1.7; }
 
 .footer-bottom {
     padding: 1.5rem 0;
     text-align: center;
-    color: rgba(255,255,255,0.3);
+    color: rgba(0,0,0,0.4);
     font-size: 0.78rem;
 }
 
