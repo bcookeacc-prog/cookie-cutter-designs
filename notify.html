@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stay in the Loop | Cookie Cutter Designs</title>
+    <meta name="description" content="Sign up to be notified when Cookie Cutter Designs comes to a farmers market or street fair near you.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Dancing+Script:wght@600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="images/logo.png" alt="Cookie Cutter Designs">
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="contact.html" class="nav-order-btn">Order Now</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+        <span class="section-tag">Coming to a Market Near You</span>
+        <h1 style="font-size:clamp(2rem,4vw,3rem);margin:0.5rem 0 1rem">Stay in the Loop</h1>
+        <p style="color:var(--gray);max-width:520px;margin:0 auto">We're getting ready to bring Cookie Cutter Designs to farmers markets and street fairs in Hurricane, Utah. Drop your info below and we'll let you know when and where to find us!</p>
+    </section>
+
+    <!-- NOTIFY FORM -->
+    <section class="order-section">
+        <div class="container">
+            <div class="order-wrapper" style="max-width:560px">
+
+                <form id="notifyForm" class="order-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name <span class="req">*</span></label>
+                            <input type="text" id="firstName" name="firstName" required placeholder="Jane">
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" id="lastName" name="lastName" placeholder="Smith">
+                        </div>
+                    </div>
+                    <div class="form-group full">
+                        <label for="email">Email Address <span class="req">*</span></label>
+                        <input type="email" id="email" name="email" required placeholder="jane@example.com">
+                    </div>
+                    <div class="form-group full">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000">
+                    </div>
+                    <div class="form-submit">
+                        <button type="submit" class="btn-primary btn-large" id="notifyBtn">Notify Me!</button>
+                        <p>We'll only reach out when we have market news — no spam, ever.</p>
+                    </div>
+                </form>
+
+                <div id="notifySuccess" class="order-success" style="display:none">
+                    <div class="success-icon">&#10003;</div>
+                    <h3>You're on the list!</h3>
+                    <p>Thanks for signing up! We'll reach out as soon as we have market dates and locations to share.</p>
+                    <p class="success-sub">In the meantime, follow us on social media for the latest updates!</p>
+                    <a href="index.html" class="btn-outline" style="display:inline-block;margin-top:1rem">Back to Home</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="images/logo.png" alt="Cookie Cutter Designs" class="footer-logo">
+                    <p>Made with love, designed for you. Custom apparel, drinkware, and gifts — crafted with heart in Hurricane, Utah.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/></svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="TikTok">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.19a8.16 8.16 0 004.84 1.56V6.31a4.85 4.85 0 01-1.07-.38z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h5>Quick Links</h5>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="contact.html">Place an Order</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Products</h5>
+                    <ul>
+                        <li><a href="shop.html">Custom T-Shirts</a></li>
+                        <li><a href="shop.html">Tumblers &amp; Cups</a></li>
+                        <li><a href="shop.html">Hoodies &amp; Sweatshirts</a></li>
+                        <li><a href="shop.html">Tote Bags</a></li>
+                        <li><a href="shop.html">Personalized Gifts</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Get In Touch</h5>
+                    <p class="contact-note">Ready to create something amazing? Fill out our order form or find us on social media.</p>
+                    <p class="contact-note" style="margin-top:0.75rem">&#128205; Hurricane, Utah</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Cookie Cutter Designs. All rights reserved.</p>
+                <a href="admin.html" style="color:rgba(255,255,255,0.2);font-size:0.75rem;text-decoration:none">Admin</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="toast"></div>
+    <script src="script.js"></script>
+    <script>
+        const notifyForm = document.getElementById('notifyForm');
+        if (notifyForm) {
+            notifyForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const btn = document.getElementById('notifyBtn');
+                if (btn) { btn.textContent = 'Saving...'; btn.disabled = true; }
+
+                const data = {
+                    id: Date.now(),
+                    submittedAt: new Date().toISOString(),
+                    firstName: (notifyForm.firstName && notifyForm.firstName.value.trim()) || '',
+                    lastName:  (notifyForm.lastName  && notifyForm.lastName.value.trim())  || '',
+                    email:     (notifyForm.email     && notifyForm.email.value.trim())     || '',
+                    phone:     (notifyForm.phone     && notifyForm.phone.value.trim())     || ''
+                };
+
+                const signups = JSON.parse(localStorage.getItem('ccd_notify') || '[]');
+                signups.unshift(data);
+                localStorage.setItem('ccd_notify', JSON.stringify(signups));
+
+                notifyForm.style.display = 'none';
+                const successEl = document.getElementById('notifySuccess');
+                if (successEl) successEl.style.display = 'block';
+
+                if (btn) { btn.textContent = 'Notify Me!'; btn.disabled = false; }
+            });
+        }
+    </script>
+</body>
+</html>
