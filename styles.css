@@ -580,7 +580,7 @@ h5 { font-size: 0.95rem; font-weight: 600; letter-spacing: 0.06em; text-transfor
 /* ===== ORDER SECTION ===== */
 .order-section {
     padding: 7rem 0;
-    background: #FEF3F8;
+    background: var(--white);
 }
 
 .order-wrapper { max-width: 720px; margin: 0 auto; }
