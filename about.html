@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Cookie Cutter Designs</title>
+    <meta name="description" content="Learn about Cookie Cutter Designs — custom apparel, drinkware, and gifts made with love in Hurricane, Utah.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Dancing+Script:wght@600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="images/logo.png" alt="Cookie Cutter Designs">
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="about.html" class="current">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="contact.html" class="nav-order-btn">Order Now</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+        <span class="section-tag">Our Story</span>
+        <h1 style="font-size:clamp(2rem,4vw,3rem);margin:0.5rem 0 1rem">About Cookie Cutter Designs</h1>
+        <p style="color:var(--gray);max-width:520px;margin:0 auto">Made with love, designed for you — right here in Hurricane, Utah.</p>
+    </section>
+
+    <!-- STORY SECTION -->
+    <section class="about" style="background:var(--white)">
+        <div class="container">
+            <div class="about-story-grid">
+                <div class="story-text">
+                    <span class="section-tag">Who We Are</span>
+                    <h2 style="margin:0.75rem 0 1.25rem">Crafted with care.<br>Designed for <em>you</em>.</h2>
+                    <p>Cookie Cutter Designs was born from a passion for creativity and a love of making things personal. We believe every item you wear, carry, or drink from should tell your story — and we're here to help you tell it beautifully.</p>
+                    <p style="margin-top:1rem">Based in Hurricane, Utah, we specialize in custom drinkware, apparel, and gifts. Whether you need one special piece for a birthday or a full set for an event, we pour heart and care into every single order.</p>
+                    <p style="margin-top:1rem">We use vinyl cutting, DTG (direct-to-garment) printing, and we're currently learning laser engraving — so our capabilities keep growing right along with our excitement for this craft.</p>
+                </div>
+                <div class="story-logo-wrap">
+                    <img src="images/logo.png" alt="Cookie Cutter Designs Logo" style="width:100%;max-width:360px;border-radius:16px;box-shadow:0 12px 40px rgba(0,0,0,0.1)">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHAT WE DO -->
+    <section class="about" style="background:var(--cream);padding-top:4rem">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">What We Do</span>
+                <h2>Our Craft &amp; Methods</h2>
+                <p>We combine multiple techniques to bring your designs to life on virtually any product.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon pink" style="font-size:1.5rem;width:56px;height:56px">🎨</div>
+                    <h4>Vinyl Cutting</h4>
+                    <p>Precision-cut vinyl designs applied to tumblers, shirts, bags, and more. Clean lines, vibrant colors, long-lasting results.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon gold" style="font-size:1.5rem;width:56px;height:56px">👕</div>
+                    <h4>DTG Printing</h4>
+                    <p>Direct-to-garment printing puts your full-color designs directly onto fabric. Perfect for detailed artwork and photos on apparel.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon pink" style="font-size:1.5rem;width:56px;height:56px">✨</div>
+                    <h4>Laser Engraving</h4>
+                    <p>We're learning to use a Laser X tool for precision engraving on wood, acrylic, metal, and more. Coming soon!</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon gold" style="font-size:1.5rem;width:56px;height:56px">❤️</div>
+                    <h4>Made to Order</h4>
+                    <p>Every single item is made to order — never mass produced. You get something truly one-of-a-kind, made just for you.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Why Choose Us</span>
+                <h2>The Cookie Cutter Promise</h2>
+            </div>
+            <div class="steps-grid">
+                <div class="step">
+                    <div class="step-number">01</div>
+                    <h4>Personal Attention</h4>
+                    <p>You work directly with us — not a faceless company. We care about your design as much as you do.</p>
+                </div>
+                <div class="step-divider" aria-hidden="true"></div>
+                <div class="step">
+                    <div class="step-number">02</div>
+                    <h4>Quality Materials</h4>
+                    <p>We only use high-quality blanks and materials so your finished product looks great and lasts.</p>
+                </div>
+                <div class="step-divider" aria-hidden="true"></div>
+                <div class="step">
+                    <div class="step-number">03</div>
+                    <h4>100% Custom</h4>
+                    <p>Nothing is pre-made. Every piece is created specifically for your order with your design.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOCATION / MARKETS -->
+    <section class="markets-banner">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag" style="color:var(--gold)">Hurricane, Utah</span>
+                <h2>Local &amp; Growing</h2>
+                <p style="color:rgba(255,255,255,0.65);max-width:520px;margin:0 auto">We're a small, locally-owned business based in Hurricane, Utah. Currently we operate online — but we're working toward bringing Cookie Cutter Designs to farmers markets and street fairs in the area soon. Follow us on social media to find out when and where!</p>
+            </div>
+            <div style="text-align:center">
+                <a href="contact.html" class="btn-primary">Place a Custom Order</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="images/logo.png" alt="Cookie Cutter Designs" class="footer-logo">
+                    <p>Made with love, designed for you. Custom apparel, drinkware, and gifts — crafted with heart in Hurricane, Utah.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/></svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="TikTok">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.19a8.16 8.16 0 004.84 1.56V6.31a4.85 4.85 0 01-1.07-.38z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h5>Quick Links</h5>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="contact.html">Place an Order</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Products</h5>
+                    <ul>
+                        <li><a href="shop.html#tumblers">Drinkware</a></li>
+                        <li><a href="shop.html#shirts">Apparel</a></li>
+                        <li><a href="shop.html#bags">Bags</a></li>
+                        <li><a href="shop.html#laser">Laser Engraving</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Get In Touch</h5>
+                    <p class="contact-note">Ready to create something amazing? Fill out our order form or find us on social media.</p>
+                    <p class="contact-note" style="margin-top:0.75rem">&#128205; Hurricane, Utah</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Cookie Cutter Designs. All rights reserved.</p>
+                <a href="admin.html" style="color:rgba(255,255,255,0.2);font-size:0.75rem;text-decoration:none">Admin</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

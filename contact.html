@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order & Contact | Cookie Cutter Designs</title>
+    <meta name="description" content="Place a custom order or get in touch with Cookie Cutter Designs in Hurricane, Utah.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Dancing+Script:wght@600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="images/logo.png" alt="Cookie Cutter Designs">
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html" class="current">Contact</a></li>
+                <li><a href="contact.html" class="nav-order-btn">Order Now</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+        <span class="section-tag">Let's Create Together</span>
+        <h1 style="font-size:clamp(2rem,4vw,3rem);margin:0.5rem 0 1rem">Place a Custom Order</h1>
+        <p style="color:var(--gray);max-width:520px;margin:0 auto">Fill out the form below with your order details. We'll reach out within 24 hours to confirm your design and next steps.</p>
+    </section>
+
+    <!-- ORDER FORM -->
+    <section class="order-section">
+        <div class="container">
+            <div class="order-wrapper">
+
+                <form id="orderForm" class="order-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name <span class="req">*</span></label>
+                            <input type="text" id="firstName" name="firstName" required placeholder="Jane">
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name <span class="req">*</span></label>
+                            <input type="text" id="lastName" name="lastName" required placeholder="Smith">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email Address <span class="req">*</span></label>
+                            <input type="email" id="email" name="email" required placeholder="jane@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="productType">Product Type <span class="req">*</span></label>
+                            <select id="productType" name="productType" required>
+                                <option value="">Select a product...</option>
+                                <option>Wine Tumblers</option>
+                                <option>Travel Tumblers</option>
+                                <option>Custom Mugs</option>
+                                <option>Custom T-Shirts</option>
+                                <option>Hoodies &amp; Sweatshirts</option>
+                                <option>Hats &amp; Caps</option>
+                                <option>Tote Bags</option>
+                                <option>Drawstring Bags</option>
+                                <option>Decals &amp; Stickers</option>
+                                <option>Personalized Gifts</option>
+                                <option>Multiple Items</option>
+                                <option>Something Else</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="quantity">Quantity <span class="req">*</span></label>
+                            <input type="number" id="quantity" name="quantity" required min="1" placeholder="1">
+                        </div>
+                    </div>
+                    <div class="form-group full">
+                        <label for="sizes">Size(s) Needed</label>
+                        <input type="text" id="sizes" name="sizes" placeholder="e.g., S, M, L, XL — or N/A for non-apparel items">
+                    </div>
+                    <div class="form-group full">
+                        <label for="colors">Colors &amp; Style Preferences</label>
+                        <input type="text" id="colors" name="colors" placeholder="e.g., Black with gold lettering, pink background, etc.">
+                    </div>
+                    <div class="form-group full">
+                        <label for="designDescription">Design Description <span class="req">*</span></label>
+                        <textarea id="designDescription" name="designDescription" required rows="5" placeholder="Describe your design in as much detail as possible. Include any text, images, themes, or inspiration you have in mind..."></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="neededBy">Date Needed By</label>
+                            <input type="date" id="neededBy" name="neededBy">
+                        </div>
+                        <div class="form-group">
+                            <label for="budget">Estimated Budget</label>
+                            <input type="text" id="budget" name="budget" placeholder="e.g., $50–$100">
+                        </div>
+                    </div>
+                    <div class="form-group full">
+                        <label for="heardFrom">How Did You Hear About Us?</label>
+                        <select id="heardFrom" name="heardFrom">
+                            <option value="">Select one...</option>
+                            <option>Facebook</option>
+                            <option>Instagram</option>
+                            <option>TikTok</option>
+                            <option>Word of mouth / Friend</option>
+                            <option>Google search</option>
+                            <option>Farmers market / Event</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group full">
+                        <label for="notes">Additional Notes</label>
+                        <textarea id="notes" name="notes" rows="3" placeholder="Any other details, special requests, or questions for us..."></textarea>
+                    </div>
+                    <div class="form-submit">
+                        <button type="submit" class="btn-primary btn-large" id="submitBtn">Submit Order Request</button>
+                        <p>We'll reach out within 24 hours to confirm your design details and next steps.</p>
+                    </div>
+                </form>
+
+                <div id="orderSuccess" class="order-success" style="display:none">
+                    <div class="success-icon">&#10003;</div>
+                    <h3>Order Request Received!</h3>
+                    <p>Thank you! We'll review your request and reach out within 24 hours to confirm your design details.</p>
+                    <p class="success-sub">In the meantime, follow us on social media for inspiration and updates!</p>
+                    <button class="btn-outline" onclick="resetForm()">Place Another Order</button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- REACH US -->
+    <section class="about" style="background:var(--cream);padding-top:3rem;padding-bottom:4rem">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Other Ways to Reach Us</span>
+                <h2>Find Us Online</h2>
+                <p>We're active on social media — feel free to DM us with questions or for a quick quote.</p>
+            </div>
+            <div class="features-grid" style="max-width:700px;margin:0 auto">
+                <a href="#" class="feature-card feature-link" style="text-decoration:none">
+                    <div class="feature-icon gold" style="font-size:1.6rem;width:56px;height:56px">f</div>
+                    <h4>Facebook</h4>
+                    <p>Like our page and send us a message anytime.</p>
+                </a>
+                <a href="#" class="feature-card feature-link" style="text-decoration:none">
+                    <div class="feature-icon pink" style="font-size:1.4rem;width:56px;height:56px">&#x1F4F7;</div>
+                    <h4>Instagram</h4>
+                    <p>See our latest work and DM us for orders or questions.</p>
+                </a>
+                <a href="#" class="feature-card feature-link" style="text-decoration:none">
+                    <div class="feature-icon gold" style="font-size:1.4rem;width:56px;height:56px">&#x266B;</div>
+                    <h4>TikTok</h4>
+                    <p>Follow along as we create and show behind-the-scenes content.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="images/logo.png" alt="Cookie Cutter Designs" class="footer-logo">
+                    <p>Made with love, designed for you. Custom apparel, drinkware, and gifts — crafted with heart in Hurricane, Utah.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/></svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="TikTok">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.19a8.16 8.16 0 004.84 1.56V6.31a4.85 4.85 0 01-1.07-.38z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h5>Quick Links</h5>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Products</h5>
+                    <ul>
+                        <li><a href="shop.html#tumblers">Drinkware</a></li>
+                        <li><a href="shop.html#shirts">Apparel</a></li>
+                        <li><a href="shop.html#bags">Bags</a></li>
+                        <li><a href="shop.html#laser">Laser Engraving</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Location</h5>
+                    <p class="contact-note">&#128205; Hurricane, Utah</p>
+                    <p class="contact-note" style="margin-top:0.75rem">Online orders only — farmers markets coming soon!</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Cookie Cutter Designs. All rights reserved.</p>
+                <a href="admin.html" style="color:rgba(255,255,255,0.2);font-size:0.75rem;text-decoration:none">Admin</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="toast"></div>
+    <script src="script.js"></script>
+</body>
+</html>

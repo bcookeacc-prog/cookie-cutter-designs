@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin | Cookie Cutter Designs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700&family=Dancing+Script:wght@600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body { background: var(--cream); }
+
+        /* ── LOGIN SCREEN ── */
+        .login-screen {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--black);
+            padding: 24px;
+        }
+
+        .login-box {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 48px 40px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .login-logo {
+            height: 80px;
+            width: auto;
+            margin: 0 auto 20px;
+        }
+
+        .login-title {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--black);
+            margin-bottom: 6px;
+        }
+
+        .login-sub {
+            font-size: 0.82rem;
+            color: var(--gray);
+            margin-bottom: 28px;
+        }
+
+        .login-box input[type="password"] {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1.5px solid var(--border);
+            border-radius: 10px;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            text-align: center;
+            letter-spacing: 0.15em;
+            margin-bottom: 14px;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .login-box input[type="password"]:focus {
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(201,148,58,0.12);
+        }
+
+        .login-error {
+            color: #c0392b;
+            font-size: 0.82rem;
+            margin-bottom: 12px;
+            display: none;
+        }
+
+        .login-back {
+            display: block;
+            margin-top: 20px;
+            font-size: 0.8rem;
+            color: var(--gray);
+            text-decoration: none;
+        }
+
+        .login-back:hover { color: var(--gold); }
+
+        /* ── ADMIN DASHBOARD ── */
+        .admin-wrap { display: none; }
+
+        .admin-header {
+            background: var(--black);
+            padding: 18px 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .admin-header-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .admin-header img { height: 44px; width: auto; }
+
+        .admin-header-title {
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            color: var(--white);
+        }
+
+        .admin-header-title span {
+            display: block;
+            font-family: var(--font-body);
+            font-size: 0.72rem;
+            color: var(--gold);
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .admin-header-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .admin-logout {
+            background: none;
+            border: 1px solid rgba(255,255,255,0.2);
+            color: rgba(255,255,255,0.65);
+            padding: 7px 16px;
+            border-radius: 20px;
+            font-family: var(--font-body);
+            font-size: 0.78rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .admin-logout:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        .admin-body {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 36px 24px 60px;
+        }
+
+        /* STATS */
+        .admin-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 16px;
+            margin-bottom: 36px;
+        }
+
+        .stat-card {
+            background: var(--white);
+            border-radius: 14px;
+            padding: 22px 20px;
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .stat-card .stat-num {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            color: var(--gold);
+            font-weight: 700;
+            display: block;
+        }
+
+        .stat-card .stat-label {
+            font-size: 0.75rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+            margin-top: 4px;
+        }
+
+        /* TABS */
+        .admin-tabs {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 0;
+            overflow-x: auto;
+        }
+
+        .admin-tab {
+            padding: 10px 20px;
+            border: none;
+            background: none;
+            font-family: var(--font-body);
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--gray);
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            margin-bottom: -2px;
+            white-space: nowrap;
+            transition: all 0.2s;
+        }
+
+        .admin-tab:hover { color: var(--gold); }
+        .admin-tab.active { color: var(--gold); border-bottom-color: var(--gold); }
+
+        .tab-panel { display: none; }
+        .tab-panel.active { display: block; }
+
+        /* ORDERS TABLE */
+        .orders-toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .orders-toolbar h3 {
+            font-size: 1.05rem;
+            color: var(--black);
+        }
+
+        .orders-search {
+            padding: 8px 14px;
+            border: 1.5px solid var(--border);
+            border-radius: 8px;
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            outline: none;
+            width: 220px;
+            transition: border-color 0.2s;
+        }
+
+        .orders-search:focus { border-color: var(--gold); }
+
+        .orders-table-wrap {
+            background: var(--white);
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+        }
+
+        .orders-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+        }
+
+        .orders-table th {
+            background: var(--cream);
+            padding: 12px 16px;
+            text-align: left;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gray);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .orders-table td {
+            padding: 13px 16px;
+            border-bottom: 1px solid var(--border);
+            color: var(--black);
+            vertical-align: top;
+        }
+
+        .orders-table tr:last-child td { border-bottom: none; }
+        .orders-table tr:hover td { background: var(--cream); }
+
+        .order-status {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.72rem;
+            font-weight: 700;
+        }
+
+        .status-new { background: #FDE8F2; color: #9B3F56; }
+        .status-in-progress { background: #FDF6E3; color: #8B6914; }
+        .status-complete { background: #E8F5E9; color: #2E7D32; }
+        .status-cancelled { background: #F5F5F5; color: #757575; }
+
+        .order-actions { display: flex; gap: 6px; flex-wrap: wrap; }
+
+        .action-btn {
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: 1px solid var(--border);
+            background: var(--white);
+            color: var(--gray);
+            transition: all 0.2s;
+            font-family: var(--font-body);
+        }
+
+        .action-btn:hover { border-color: var(--gold); color: var(--gold); }
+        .action-btn.danger:hover { border-color: #c0392b; color: #c0392b; }
+
+        .empty-state {
+            text-align: center;
+            padding: 48px 24px;
+            color: var(--gray);
+        }
+
+        .empty-state p { font-size: 0.9rem; margin-top: 8px; }
+
+        /* ORDER DETAIL MODAL */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.55);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-overlay.open { display: flex; }
+
+        .modal {
+            background: var(--white);
+            border-radius: 16px;
+            width: 100%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+        }
+
+        .modal-header {
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .modal-header h3 { font-size: 1.1rem; }
+
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: var(--gray);
+            width: 32px; height: 32px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        .modal-close:hover { background: var(--cream); }
+
+        .modal-body { padding: 24px; }
+
+        .detail-row {
+            display: grid;
+            grid-template-columns: 140px 1fr;
+            gap: 8px;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.88rem;
+        }
+
+        .detail-row:last-child { border-bottom: none; }
+        .detail-label { font-weight: 600; color: var(--gray); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; padding-top: 2px; }
+        .detail-value { color: var(--black); line-height: 1.6; word-break: break-word; }
+
+        .modal-footer {
+            padding: 16px 24px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        /* SETTINGS */
+        .settings-card {
+            background: var(--white);
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            padding: 28px;
+            margin-bottom: 20px;
+            max-width: 520px;
+        }
+
+        .settings-card h3 {
+            font-size: 1rem;
+            margin-bottom: 6px;
+        }
+
+        .settings-card p {
+            font-size: 0.85rem;
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        .settings-card input {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1.5px solid var(--border);
+            border-radius: 8px;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .settings-card input:focus { border-color: var(--gold); }
+
+        .settings-card .social-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .settings-card .social-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--gray);
+            width: 90px;
+            flex-shrink: 0;
+        }
+
+        /* TOAST */
+        #toast {
+            position: fixed;
+            bottom: 28px;
+            left: 50%;
+            transform: translateX(-50%) translateY(80px);
+            background: var(--black);
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-size: 0.88rem;
+            font-weight: 500;
+            z-index: 9999;
+            opacity: 0;
+            transition: all 0.35s cubic-bezier(0.34,1.56,0.64,1);
+            white-space: nowrap;
+        }
+
+        #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+        #toast.success { background: #2D6A4F; }
+        #toast.error { background: #9B3F56; }
+
+        @media (max-width: 640px) {
+            .login-box { padding: 32px 24px; }
+            .admin-body { padding: 20px 16px 40px; }
+            .orders-table th, .orders-table td { padding: 10px 12px; }
+            .detail-row { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- LOGIN SCREEN -->
+<div class="login-screen" id="loginScreen">
+    <div class="login-box">
+        <img src="images/logo.png" alt="Cookie Cutter Designs" class="login-logo">
+        <h2 class="login-title">Admin Login</h2>
+        <p class="login-sub">Cookie Cutter Designs Dashboard</p>
+        <input type="password" id="pwdInput" placeholder="Enter password" onkeydown="if(event.key==='Enter')doLogin()">
+        <p class="login-error" id="loginError">Incorrect password. Please try again.</p>
+        <button class="btn-primary btn-block" onclick="doLogin()">Sign In</button>
+        <a href="index.html" class="login-back">← Back to Website</a>
+    </div>
+</div>
+
+<!-- ADMIN DASHBOARD -->
+<div class="admin-wrap" id="adminWrap">
+
+    <div class="admin-header">
+        <div class="admin-header-left">
+            <img src="images/logo.png" alt="Logo">
+            <div class="admin-header-title">
+                <span>Admin Dashboard</span>
+                Cookie Cutter Designs
+            </div>
+        </div>
+        <div class="admin-header-right">
+            <a href="index.html" style="color:rgba(255,255,255,0.5);font-size:0.8rem;text-decoration:none">View Site</a>
+            <button class="admin-logout" onclick="doLogout()">Log Out</button>
+        </div>
+    </div>
+
+    <div class="admin-body">
+
+        <!-- STATS -->
+        <div class="admin-stats" id="adminStats"></div>
+
+        <!-- TABS -->
+        <div class="admin-tabs">
+            <button class="admin-tab active" onclick="switchTab('orders', this)">Order Requests</button>
+            <button class="admin-tab" onclick="switchTab('settings', this)">Settings</button>
+        </div>
+
+        <!-- ORDERS TAB -->
+        <div class="tab-panel active" id="tab-orders">
+            <div class="orders-toolbar">
+                <h3>All Order Requests</h3>
+                <input class="orders-search" type="text" placeholder="Search orders..." oninput="filterOrders(this.value)" id="orderSearch">
+            </div>
+            <div class="orders-table-wrap">
+                <table class="orders-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Customer</th>
+                            <th>Product</th>
+                            <th>Qty</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ordersBody"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- SETTINGS TAB -->
+        <div class="tab-panel" id="tab-settings">
+
+            <!-- Change Password -->
+            <div class="settings-card">
+                <h3>Change Admin Password</h3>
+                <p>Update the password used to access this dashboard.</p>
+                <input type="password" id="newPwd1" placeholder="New password">
+                <input type="password" id="newPwd2" placeholder="Confirm new password">
+                <button class="btn-primary" onclick="changePassword()">Update Password</button>
+            </div>
+
+            <!-- Social Media Links -->
+            <div class="settings-card">
+                <h3>Social Media Links</h3>
+                <p>Update these when you create your social accounts. Links will appear in the footer of every page.</p>
+                <div class="social-row">
+                    <span class="social-label">Facebook</span>
+                    <input type="url" id="fbUrl" placeholder="https://facebook.com/..." style="margin-bottom:0">
+                </div>
+                <div class="social-row">
+                    <span class="social-label">Instagram</span>
+                    <input type="url" id="igUrl" placeholder="https://instagram.com/..." style="margin-bottom:0">
+                </div>
+                <div class="social-row" style="margin-bottom:20px">
+                    <span class="social-label">TikTok</span>
+                    <input type="url" id="ttUrl" placeholder="https://tiktok.com/@..." style="margin-bottom:0">
+                </div>
+                <button class="btn-primary" onclick="saveSocialLinks()">Save Links</button>
+                <p style="margin-top:10px;font-size:0.78rem;color:var(--gray);margin-bottom:0">Note: social links save to this browser's storage. To apply sitewide, contact your web developer to hardcode them once you have your handles.</p>
+            </div>
+
+            <!-- Clear All Orders -->
+            <div class="settings-card" style="border-color:#FFD0D0">
+                <h3 style="color:#9B3F56">Danger Zone</h3>
+                <p>Permanently delete all order request data. This cannot be undone.</p>
+                <button class="btn-outline" style="border-color:#c0392b;color:#c0392b" onclick="clearAllOrders()">Clear All Orders</button>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<!-- ORDER DETAIL MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+    <div class="modal" id="modal">
+        <div class="modal-header">
+            <h3>Order Details</h3>
+            <button class="modal-close" onclick="closeModalDirect()">&#x2715;</button>
+        </div>
+        <div class="modal-body" id="modalBody"></div>
+        <div class="modal-footer" id="modalFooter"></div>
+    </div>
+</div>
+
+<div id="toast"></div>
+
+<script>
+// ── DEFAULT PASSWORD ─────────────────────────────
+const DEFAULT_PWD = 'Cookie2026!';
+
+function getPassword() {
+    return localStorage.getItem('ccd_pwd') || DEFAULT_PWD;
+}
+
+// ── LOGIN / LOGOUT ───────────────────────────────
+function doLogin() {
+    const val = document.getElementById('pwdInput').value;
+    if (val === getPassword()) {
+        sessionStorage.setItem('ccd_admin', '1');
+        showDashboard();
+    } else {
+        document.getElementById('loginError').style.display = 'block';
+        document.getElementById('pwdInput').value = '';
+        document.getElementById('pwdInput').focus();
+    }
+}
+
+function doLogout() {
+    sessionStorage.removeItem('ccd_admin');
+    document.getElementById('adminWrap').style.display = 'none';
+    document.getElementById('loginScreen').style.display = 'flex';
+    document.getElementById('pwdInput').value = '';
+    document.getElementById('loginError').style.display = 'none';
+}
+
+function showDashboard() {
+    document.getElementById('loginScreen').style.display = 'none';
+    document.getElementById('adminWrap').style.display = 'block';
+    renderStats();
+    renderOrders();
+    loadSocialInputs();
+}
+
+// Auto-login if session active
+window.addEventListener('DOMContentLoaded', () => {
+    if (sessionStorage.getItem('ccd_admin') === '1') {
+        showDashboard();
+    }
+});
+
+// ── TABS ─────────────────────────────────────────
+function switchTab(name, btn) {
+    document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-' + name).classList.add('active');
+}
+
+// ── STATS ────────────────────────────────────────
+function renderStats() {
+    const orders = getOrders();
+    const newCount = orders.filter(o => o.status === 'new').length;
+    const inProgressCount = orders.filter(o => o.status === 'in-progress').length;
+    const completeCount = orders.filter(o => o.status === 'complete').length;
+
+    document.getElementById('adminStats').innerHTML = `
+        <div class="stat-card"><span class="stat-num">${orders.length}</span><span class="stat-label">Total Orders</span></div>
+        <div class="stat-card"><span class="stat-num" style="color:var(--pink)">${newCount}</span><span class="stat-label">New</span></div>
+        <div class="stat-card"><span class="stat-num">${inProgressCount}</span><span class="stat-label">In Progress</span></div>
+        <div class="stat-card"><span class="stat-num" style="color:#2E7D32">${completeCount}</span><span class="stat-label">Completed</span></div>
+    `;
+}
+
+// ── ORDERS ───────────────────────────────────────
+function getOrders() {
+    return JSON.parse(localStorage.getItem('ccd_orders') || '[]');
+}
+
+function saveOrders(orders) {
+    localStorage.setItem('ccd_orders', JSON.stringify(orders));
+}
+
+function formatDate(iso) {
+    if (!iso) return '—';
+    const d = new Date(iso);
+    return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+}
+
+function statusBadge(status) {
+    const map = {
+        'new': 'status-new',
+        'in-progress': 'status-in-progress',
+        'complete': 'status-complete',
+        'cancelled': 'status-cancelled'
+    };
+    const labels = { 'new': 'New', 'in-progress': 'In Progress', 'complete': 'Complete', 'cancelled': 'Cancelled' };
+    return `<span class="order-status ${map[status] || 'status-new'}">${labels[status] || 'New'}</span>`;
+}
+
+let currentFilter = '';
+
+function renderOrders(filter) {
+    if (filter !== undefined) currentFilter = filter;
+    const orders = getOrders();
+    const q = currentFilter.toLowerCase();
+    const filtered = q
+        ? orders.filter(o =>
+            (o.firstName + ' ' + o.lastName).toLowerCase().includes(q) ||
+            (o.email || '').toLowerCase().includes(q) ||
+            (o.productType || '').toLowerCase().includes(q)
+          )
+        : orders;
+
+    const tbody = document.getElementById('ordersBody');
+
+    if (filtered.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="6"><div class="empty-state">
+            <p>${orders.length === 0 ? 'No orders yet — they\'ll appear here when customers submit the order form.' : 'No orders match your search.'}</p>
+        </div></td></tr>`;
+        return;
+    }
+
+    tbody.innerHTML = filtered.map(o => `
+        <tr>
+            <td style="white-space:nowrap;color:var(--gray);font-size:0.8rem">${formatDate(o.submittedAt)}</td>
+            <td>
+                <strong>${o.firstName || ''} ${o.lastName || ''}</strong><br>
+                <span style="font-size:0.78rem;color:var(--gray)">${o.email || ''}</span>
+            </td>
+            <td>${o.productType || '—'}</td>
+            <td>${o.quantity || '—'}</td>
+            <td>${statusBadge(o.status || 'new')}</td>
+            <td>
+                <div class="order-actions">
+                    <button class="action-btn" onclick="viewOrder(${o.id})">View</button>
+                    <button class="action-btn" onclick="setStatus(${o.id}, 'in-progress')">In Progress</button>
+                    <button class="action-btn" onclick="setStatus(${o.id}, 'complete')">Complete</button>
+                    <button class="action-btn danger" onclick="deleteOrder(${o.id})">Delete</button>
+                </div>
+            </td>
+        </tr>
+    `).join('');
+}
+
+function filterOrders(val) {
+    renderOrders(val);
+}
+
+function setStatus(id, status) {
+    const orders = getOrders();
+    const o = orders.find(x => x.id === id);
+    if (o) { o.status = status; saveOrders(orders); renderOrders(); renderStats(); showToast('Status updated!'); }
+}
+
+function deleteOrder(id) {
+    if (!confirm('Delete this order request? This cannot be undone.')) return;
+    const orders = getOrders().filter(x => x.id !== id);
+    saveOrders(orders);
+    renderOrders();
+    renderStats();
+    showToast('Order deleted.');
+}
+
+function clearAllOrders() {
+    if (!confirm('Delete ALL order requests permanently? This cannot be undone.')) return;
+    localStorage.removeItem('ccd_orders');
+    renderOrders();
+    renderStats();
+    showToast('All orders cleared.');
+}
+
+// ── ORDER DETAIL MODAL ───────────────────────────
+function viewOrder(id) {
+    const o = getOrders().find(x => x.id === id);
+    if (!o) return;
+
+    const fields = [
+        ['Submitted', formatDate(o.submittedAt)],
+        ['Status', statusBadge(o.status || 'new')],
+        ['Name', `${o.firstName || ''} ${o.lastName || ''}`],
+        ['Email', o.email || '—'],
+        ['Phone', o.phone || '—'],
+        ['Product', o.productType || '—'],
+        ['Quantity', o.quantity || '—'],
+        ['Sizes', o.sizes || '—'],
+        ['Colors / Style', o.colors || '—'],
+        ['Design Description', o.designDescription || '—'],
+        ['Needed By', o.neededBy || '—'],
+        ['Budget', o.budget || '—'],
+        ['Heard From', o.heardFrom || '—'],
+        ['Additional Notes', o.notes || '—'],
+    ];
+
+    document.getElementById('modalBody').innerHTML = fields.map(([label, val]) => `
+        <div class="detail-row">
+            <span class="detail-label">${label}</span>
+            <span class="detail-value">${val}</span>
+        </div>
+    `).join('');
+
+    document.getElementById('modalFooter').innerHTML = `
+        <button class="btn-primary" onclick="setStatus(${o.id},'in-progress');closeModalDirect()">Mark In Progress</button>
+        <button class="btn-outline" onclick="setStatus(${o.id},'complete');closeModalDirect()">Mark Complete</button>
+        <button class="action-btn danger" onclick="deleteOrder(${o.id});closeModalDirect()">Delete</button>
+    `;
+
+    document.getElementById('modalOverlay').classList.add('open');
+}
+
+function closeModal(e) {
+    if (e.target === document.getElementById('modalOverlay')) closeModalDirect();
+}
+
+function closeModalDirect() {
+    document.getElementById('modalOverlay').classList.remove('open');
+}
+
+// ── PASSWORD CHANGE ──────────────────────────────
+function changePassword() {
+    const p1 = document.getElementById('newPwd1').value.trim();
+    const p2 = document.getElementById('newPwd2').value.trim();
+    if (!p1) { showToast('Please enter a new password.', 'error'); return; }
+    if (p1 !== p2) { showToast('Passwords do not match.', 'error'); return; }
+    if (p1.length < 6) { showToast('Password must be at least 6 characters.', 'error'); return; }
+    localStorage.setItem('ccd_pwd', p1);
+    document.getElementById('newPwd1').value = '';
+    document.getElementById('newPwd2').value = '';
+    showToast('Password updated successfully!', 'success');
+}
+
+// ── SOCIAL LINKS ─────────────────────────────────
+function loadSocialInputs() {
+    const links = JSON.parse(localStorage.getItem('ccd_social') || '{}');
+    document.getElementById('fbUrl').value = links.fb || '';
+    document.getElementById('igUrl').value = links.ig || '';
+    document.getElementById('ttUrl').value = links.tt || '';
+}
+
+function saveSocialLinks() {
+    const links = {
+        fb: document.getElementById('fbUrl').value.trim(),
+        ig: document.getElementById('igUrl').value.trim(),
+        tt: document.getElementById('ttUrl').value.trim()
+    };
+    localStorage.setItem('ccd_social', JSON.stringify(links));
+    showToast('Social links saved!', 'success');
+}
+
+// ── TOAST ────────────────────────────────────────
+function showToast(msg, type) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.className = type || '';
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 3000);
+}
+</script>
+</body>
+</html>

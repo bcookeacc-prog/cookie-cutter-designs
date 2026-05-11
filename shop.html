@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop | Cookie Cutter Designs</title>
+    <meta name="description" content="Browse custom tumblers, shirts, bags, and more from Cookie Cutter Designs in Hurricane, Utah.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Dancing+Script:wght@600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="images/logo.png" alt="Cookie Cutter Designs">
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html" class="current">Shop</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="contact.html" class="nav-order-btn">Order Now</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="cart-btn" onclick="toggleCart()" aria-label="View cart">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+                        <line x1="3" y1="6" x2="21" y2="6"/>
+                        <path d="M16 10a4 4 0 01-8 0"/>
+                    </svg>
+                    <span class="cart-count" id="cartCount">0</span>
+                </button>
+                <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- CART SIDEBAR -->
+    <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3>Your Order</h3>
+            <button onclick="toggleCart()" aria-label="Close cart">&#x2715;</button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <p class="cart-empty">Your cart is empty</p>
+        </div>
+        <div class="cart-footer" id="cartFooter" style="display:none">
+            <div class="cart-total">
+                <span>Estimated Starting Total:</span>
+                <span id="cartTotal">$0</span>
+            </div>
+            <p class="cart-note">*Final price confirmed after design consultation</p>
+            <a href="contact.html" class="btn-primary btn-block" style="display:block;text-align:center;padding:0.875rem 2rem">Proceed to Order Form</a>
+        </div>
+    </div>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+        <span class="section-tag">Our Products</span>
+        <h1 style="font-size:clamp(2rem,4vw,3rem);margin:0.5rem 0 1rem">Shop Custom Designs</h1>
+        <p style="color:var(--gray);max-width:500px;margin:0 auto">Add items to your order list, then head to the order form to share your design details.</p>
+    </section>
+
+    <!-- PRODUCTS GRID -->
+    <section class="products" style="padding-top:4rem">
+        <div class="container">
+
+            <!-- DRINKWARE -->
+            <div class="section-header" style="margin-bottom:2rem;text-align:left">
+                <span class="section-tag" id="tumblers">Drinkware</span>
+            </div>
+            <div class="products-grid" style="margin-bottom:4rem">
+
+                <div class="product-card">
+                    <div class="product-img pink-bg">
+                        <svg viewBox="0 0 100 100" fill="none">
+                            <path d="M32 22 L36 78 L64 78 L68 22 Z" fill="rgba(200,120,138,0.25)" stroke="#C8788A" stroke-width="2" stroke-linejoin="round"/>
+                            <ellipse cx="50" cy="22" rx="18" ry="5" fill="rgba(200,120,138,0.3)" stroke="#C8788A" stroke-width="2"/>
+                            <path d="M38 40 Q50 45 62 40" stroke="#C8788A" stroke-width="1.5" fill="none"/>
+                            <path d="M36 55 Q50 60 64 55" stroke="#C8788A" stroke-width="1" fill="none" opacity="0.6"/>
+                        </svg>
+                    </div>
+                    <div class="product-info">
+                        <h4>Wine Tumblers</h4>
+                        <p>Personalized stemless wine tumblers — perfect for gifting or treating yourself</p>
+                        <div class="product-footer">
+                            <span class="price">Starting at $20</span>
+                            <button class="btn-cart" onclick="addToCart('Wine Tumblers', 20)">Add to Order</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-img gold-bg">
+                        <svg viewBox="0 0 100 100" fill="none">
+                            <rect x="32" y="18" width="36" height="68" rx="6" fill="rgba(201,148,58,0.25)" stroke="#C9943A" stroke-width="2"/>
+                            <path d="M68 34 Q80 34 80 46 Q80 58 68 58" stroke="#C9943A" stroke-width="2" fill="none"/>
+                            <path d="M38 35 Q50 40 62 35" stroke="#C9943A" stroke-width="1.2" fill="none" opacity="0.7"/>
+                        </svg>
+                    </div>
+                    <div class="product-info">
+                        <h4>Travel Tumblers</h4>
+                        <p>Custom insulated travel tumblers to keep your drink hot or cold all day</p>
+                        <div class="product-footer">
+                            <span class="price">Starting at $25</span>
+                            <button class="btn-cart" onclick="addToCart('Travel Tumblers', 25)">Add to Order</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-img pink-bg">
+                        <svg viewBox="0 0 100 100" fill="none">
+                            <rect x="18" y="28" width="48" height="44" rx="4" fill="rgba(200,120,138,0.25)" stroke="#C8788A" stroke-width="2"/>
+                            <path d="M66 36 Q80 36 80 50 Q80 62 66 62" stroke="#C8788A" stroke-width="2" fill="none"/>
+                            <line x1="18" y1="72" x2="66" y2="72" stroke="#C8788A" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <div class="product-info">
+                        <h4>Custom Mugs</h4>
+                        <p>Personalized coffee mugs — great for home, the office, or as a thoughtful gift</p>
+                        <div class="product-footer">
+                            <span class="price">Starting at $15</span>
+                            <button class="btn-cart" onclick="addToCart('Custom Mugs', 15)">Add to Order</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- APPAREL -->
+            <div class="section-header" style="margin-bottom:2rem;text-align:left">
+                <span class="section-tag" id="shirts">Apparel</span>
+            </div>
+            <div class="products-grid" style="margin-bottom:4rem">
+
+                <div class="product-card">
+                    <div class="product-img gold-bg">
+                        <svg viewBox="0 0 100 100" fill="none">
+                            <path d="M28 22 L15 34 L25 39 L25 78 L75 78 L75 39 L85 34 L72 22 L60 28 Q50 34 40 28 Z" fill="rgba(201,148,58,0.25)" stroke="#C9943A" stroke-width="2" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="product-info">
+                        <h4>Custom T-Shirts</h4>
+                        <p>Personalized designs on premium tees — vinyl or DTG printing available</p>
+                        <div class="product-footer">
+                            <span class="price">Starting at $25</span>
+                            <button class="btn-cart" onclick="addToCart('Custom T-Shirts', 25)">Add to Order</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-img pink-bg">
+                        <svg viewBox="0 0 100 100" fill="none">
+                            <path d="M20 30 L8 48 L22 48 L22 78 L78 78 L78 48 L92 48 L80 30 L64 26 Q50 34 36 26 Z" fill="rgba(200,120,138,0.25)" stroke="#C8788A" stroke-width="2" stroke-linejoin="round"/>
+                            <path d="M40 26 Q50 38 60 26" stroke="#C8788A" stroke-width="1.5" fill="none"/>
+                        </svg>
+                    </div>
+                    <div class="product-info">
+                        <h4>Hoodies &amp; Sweatshirts</h4>
+                        <p>Cozy custom hoodies and crewnecks — perfect for teams or everyday wear</p>
+                        <div class="product-footer">
+                            <span class="price">Starting at $45</span>
+                            <button class="btn-cart" onclick="addToCart('Hoodies & Sweatshirts', 45)">Add to Order</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-img gold-bg">
+                        <svg viewBox="0 0 100 100" fill="none">
+                            <path d="M20 60 L80 60 L80 54 Q65 28 50 28 Q35 28 20 54 Z" fill="rgba(201,148,58,0.25)" stroke="#C9943A" stroke-width="2"/>
+                            <path d="M15 60 L85 60" stroke="#C9943A" stroke-width="3"/>
+                            <path d="M15 60 Q12 64 15 68 L30 68" stroke="#C9943A" stroke-width="2" fill="none"/>
+                        </svg>
+                    </div>
+                    <div class="product-info">
+                        <h4>Hats &amp; Caps</h4>
+                        <p>Custom embroidered or printed hats for every style and occasion</p>
+                        <div class="product-footer">
+                            <span class="price">Starting at $22</span>
+                            <button class="btn-cart" onclick="addToCart('Hats & Caps', 22)">Add to Order</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- BAGS -->
+            <div class="section-header" style="margin-bottom:2rem;text-align:left">
+                <span class="section-tag" id="bags">Bags</span>
+            </div>
+            <div class="products-grid" style="margin-bottom:4rem">
+
+                <div class="product-card">
+                    <div class="product-img pink-bg">
+                        <svg viewBox="0 0 100 100" fill="none">
+                            <rect x="25" y="36" width="50" height="50" rx="4" fill="rgba(200,120,138,0.25)" stroke="#C8788A" stroke-width="2"/>
+                            <path d="M37 36 Q37 20 50 20 Q63 20 63 36" stroke="#C8788A" stroke-width="2" fill="none"/>
+                            <line x1="38" y1="55" x2="62" y2="55" stroke="#C8788A" stroke-width="1.5" opacity="0.6"/>
+                            <line x1="38" y1="63" x2="55" y2="63" stroke="#C8788A" stroke-width="1.5" opacity="0.4"/>
+                        </svg>
+                    </div>
+                    <div class="product-info">
+                        <h4>Tote Bags</h4>
+                        <p>Custom canvas tote bags that are both stylish and functional</p>
+                        <div class="product-footer">
+                            <span class="price">Starting at $18</span>
+                            <button class="btn-cart" onclick="addToCart('Tote Bags', 18)">Add to Order</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-img gold-bg">
+                        <svg viewBox="0 0 100 100" fill="none">
+                            <rect x="22" y="42" width="56" height="44" rx="5" fill="rgba(201,148,58,0.25)" stroke="#C9943A" stroke-width="2"/>
+                            <path d="M35 42 Q35 26 50 26 Q65 26 65 42" stroke="#C9943A" stroke-width="2" fill="none"/>
+                            <line x1="35" y1="60" x2="65" y2="60" stroke="#C9943A" stroke-width="1.5" opacity="0.6"/>
+                        </svg>
+                    </div>
+                    <div class="product-info">
+                        <h4>Drawstring Bags</h4>
+                        <p>Personalized drawstring bags — great for events, teams, and giveaways</p>
+                        <div class="product-footer">
+                            <span class="price">Starting at $16</span>
+                            <button class="btn-cart" onclick="addToCart('Drawstring Bags', 16)">Add to Order</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- GIFTS & DECALS -->
+            <div class="section-header" style="margin-bottom:2rem;text-align:left">
+                <span class="section-tag">Gifts &amp; Decals</span>
+            </div>
+            <div class="products-grid" style="margin-bottom:4rem">
+
+                <div class="product-card">
+                    <div class="product-img gold-bg">
+                        <svg viewBox="0 0 100 100" fill="none">
+                            <polygon points="50,10 64,36 92,40 72,60 77,88 50,74 23,88 28,60 8,40 36,36" fill="rgba(201,148,58,0.2)" stroke="#C9943A" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <div class="product-info">
+                        <h4>Decals &amp; Stickers</h4>
+                        <p>Custom vinyl stickers and decals in any shape — great for cars, cups & more</p>
+                        <div class="product-footer">
+                            <span class="price">Starting at $8</span>
+                            <button class="btn-cart" onclick="addToCart('Decals & Stickers', 8)">Add to Order</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-img pink-bg">
+                        <svg viewBox="0 0 100 100" fill="none">
+                            <rect x="18" y="42" width="64" height="44" rx="3" fill="rgba(200,120,138,0.2)" stroke="#C8788A" stroke-width="2"/>
+                            <rect x="18" y="30" width="64" height="14" rx="2" fill="rgba(200,120,138,0.3)" stroke="#C8788A" stroke-width="2"/>
+                            <line x1="50" y1="30" x2="50" y2="86" stroke="#C9943A" stroke-width="2"/>
+                            <path d="M50 30 Q36 16 28 22 Q20 28 36 34 Q43 36 50 30" fill="rgba(200,120,138,0.35)" stroke="#C8788A" stroke-width="1.5"/>
+                            <path d="M50 30 Q64 16 72 22 Q80 28 64 34 Q57 36 50 30" fill="rgba(200,120,138,0.35)" stroke="#C8788A" stroke-width="1.5"/>
+                        </svg>
+                    </div>
+                    <div class="product-info">
+                        <h4>Personalized Gifts</h4>
+                        <p>One-of-a-kind custom gift items for birthdays, holidays, and every moment</p>
+                        <div class="product-footer">
+                            <span class="price">Starting at $20</span>
+                            <button class="btn-cart" onclick="addToCart('Personalized Gifts', 20)">Add to Order</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- LASER ENGRAVING — COMING SOON -->
+            <div class="laser-coming-soon" id="laser">
+                <div class="laser-icon">✨</div>
+                <span class="section-tag">Coming Soon</span>
+                <h2>Laser Engraving</h2>
+                <p>We're learning to use our laser engraver to bring you precision-etched designs on wood, acrylic, metal, and more. Stay tuned — this is going to be stunning!</p>
+                <a href="contact.html" class="btn-outline" style="margin-top:1.5rem;display:inline-block">Get Notified</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="images/logo.png" alt="Cookie Cutter Designs" class="footer-logo">
+                    <p>Made with love, designed for you. Custom apparel, drinkware, and gifts — crafted with heart in Hurricane, Utah.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/></svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="TikTok">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.19a8.16 8.16 0 004.84 1.56V6.31a4.85 4.85 0 01-1.07-.38z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h5>Quick Links</h5>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="shop.html">Shop</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="contact.html">Place an Order</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Products</h5>
+                    <ul>
+                        <li><a href="shop.html#tumblers">Drinkware</a></li>
+                        <li><a href="shop.html#shirts">Apparel</a></li>
+                        <li><a href="shop.html#bags">Bags</a></li>
+                        <li><a href="shop.html#laser">Laser Engraving</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h5>Get In Touch</h5>
+                    <p class="contact-note">Ready to create something amazing? Fill out our order form or find us on social media.</p>
+                    <p class="contact-note" style="margin-top:0.75rem">&#128205; Hurricane, Utah</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Cookie Cutter Designs. All rights reserved.</p>
+                <a href="admin.html" style="color:rgba(255,255,255,0.2);font-size:0.75rem;text-decoration:none">Admin</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="toast"></div>
+    <script src="script.js"></script>
+</body>
+</html>
