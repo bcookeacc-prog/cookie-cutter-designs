@@ -1,3 +1,22 @@
+// ===== PHONE FORMATTING =====
+function formatPhone(el) {
+    let val = el.value.replace(/\D/g, '').slice(0, 10);
+    if (val.length >= 7) {
+        val = '(' + val.slice(0,3) + ')' + val.slice(3,6) + '-' + val.slice(6);
+    } else if (val.length >= 4) {
+        val = '(' + val.slice(0,3) + ')' + val.slice(3);
+    } else if (val.length > 0) {
+        val = '(' + val;
+    }
+    el.value = val;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('input[type="tel"]').forEach(el => {
+        el.addEventListener('input', () => formatPhone(el));
+    });
+});
+
 // ===== NAVBAR SCROLL =====
 const navbar = document.getElementById('navbar');
 if (navbar) {
