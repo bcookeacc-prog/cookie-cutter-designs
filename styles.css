@@ -395,6 +395,43 @@ h5 { font-size: 0.95rem; font-weight: 600; letter-spacing: 0.06em; text-transfor
 
 .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
 
+.hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-logo-col {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-logo-img {
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 16px 48px rgba(201,148,58,0.2);
+}
+
+@media (max-width: 768px) {
+    .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        text-align: center;
+        padding: 3rem 1.5rem;
+    }
+    .hero-logo-img { max-width: 260px; }
+    .hero-buttons { justify-content: center; }
+}
+
 /* ===== ABOUT ===== */
 .about {
     padding: 7rem 0;
