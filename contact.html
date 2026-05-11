@@ -74,7 +74,7 @@
                     <div class="form-row">
                         <div class="form-group">
                             <label for="productType">Product Type <span class="req">*</span></label>
-                            <select id="productType" name="productType" required>
+                            <select id="productType" name="productType" required onchange="toggleMultiItems()">
                                 <option value="">Select a product...</option>
                                 <option>Wine Tumblers</option>
                                 <option>Travel Tumblers</option>
@@ -95,6 +95,24 @@
                             <input type="number" id="quantity" name="quantity" required min="1" placeholder="1">
                         </div>
                     </div>
+
+                    <!-- MULTI-ITEM CHECKLIST (shown when Multiple Items is selected) -->
+                    <div class="form-group full" id="multiItemGroup" style="display:none">
+                        <label>Which items would you like? <span class="req">*</span></label>
+                        <div class="multi-item-grid">
+                            <label class="multi-item-check"><input type="checkbox" name="multiItems" value="Wine Tumblers"> Wine Tumblers</label>
+                            <label class="multi-item-check"><input type="checkbox" name="multiItems" value="Travel Tumblers"> Travel Tumblers</label>
+                            <label class="multi-item-check"><input type="checkbox" name="multiItems" value="Custom Mugs"> Custom Mugs</label>
+                            <label class="multi-item-check"><input type="checkbox" name="multiItems" value="Custom T-Shirts"> Custom T-Shirts</label>
+                            <label class="multi-item-check"><input type="checkbox" name="multiItems" value="Hoodies & Sweatshirts"> Hoodies &amp; Sweatshirts</label>
+                            <label class="multi-item-check"><input type="checkbox" name="multiItems" value="Hats & Caps"> Hats &amp; Caps</label>
+                            <label class="multi-item-check"><input type="checkbox" name="multiItems" value="Tote Bags"> Tote Bags</label>
+                            <label class="multi-item-check"><input type="checkbox" name="multiItems" value="Drawstring Bags"> Drawstring Bags</label>
+                            <label class="multi-item-check"><input type="checkbox" name="multiItems" value="Decals & Stickers"> Decals &amp; Stickers</label>
+                            <label class="multi-item-check"><input type="checkbox" name="multiItems" value="Personalized Gifts"> Personalized Gifts</label>
+                        </div>
+                    </div>
+
                     <div class="form-group full">
                         <label for="sizes">Size(s) Needed</label>
                         <input type="text" id="sizes" name="sizes" placeholder="e.g., S, M, L, XL — or N/A for non-apparel items">

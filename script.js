@@ -102,6 +102,14 @@ function renderCart() {
     }
 }
 
+// ===== MULTI-ITEM CHECKLIST TOGGLE =====
+function toggleMultiItems() {
+    const select = document.getElementById('productType');
+    const group = document.getElementById('multiItemGroup');
+    if (!select || !group) return;
+    group.style.display = select.value === 'Multiple Items' ? 'block' : 'none';
+}
+
 // ===== PREFILL ORDER FORM FROM SHOP =====
 document.addEventListener('DOMContentLoaded', () => {
     const productSelect = document.getElementById('productType');
@@ -133,22 +141,27 @@ document.addEventListener('DOMContentLoaded', () => {
         // Pre-fill the dropdown
         productSelect.value = selectedProduct;
 
+        // Show/hide multi-item checklist
+        toggleMultiItems();
+
+        // Pre-check cart items in the checklist
+        if (selectedProduct === 'Multiple Items' && savedCart.length > 0) {
+            savedCart.forEach(item => {
+                const checkbox = document.querySelector(`input[name="multiItems"][value="${item.name}"]`);
+                if (checkbox) checkbox.checked = true;
+            });
+        }
+
         // Pre-fill quantity
         const qtyEl = document.getElementById('quantity');
         if (qtyEl && selectedQty > 1) qtyEl.value = selectedQty;
-
-        // Pre-fill notes with cart list if multiple items
-        if (cartSummary) {
-            const notesEl = document.getElementById('notes');
-            if (notesEl && !notesEl.value) notesEl.value = 'Items selected from shop:\n' + cartSummary;
-        }
 
         // Show the prefill notice
         const notice = document.getElementById('prefillNotice');
         const noticeText = document.getElementById('prefillNoticeText');
         if (notice && noticeText) {
             if (selectedProduct === 'Multiple Items') {
-                noticeText.innerHTML = '<strong>Multiple items added from the shop!</strong><p>Your product types and quantities have been pre-filled below. Just add your design details and we\'ll take care of the rest.</p>';
+                noticeText.innerHTML = '<strong>Multiple items added from the shop!</strong><p>We\'ve checked the items you selected — feel free to adjust, then fill in your design details below.</p>';
             } else {
                 noticeText.innerHTML = `<strong>${selectedProduct} selected from the shop!</strong><p>Your product type has been pre-filled below. Just fill in your details and design description and you\'re good to go.</p>`;
             }
@@ -166,6 +179,9 @@ if (orderForm) {
         const btn = document.getElementById('submitBtn');
         if (btn) { btn.textContent = 'Sending...'; btn.disabled = true; }
 
+        // Collect checked multi-items if applicable
+        const checkedItems = [...document.querySelectorAll('input[name="multiItems"]:checked')].map(cb => cb.value);
+
         const data = {
             id: Date.now(),
             submittedAt: new Date().toISOString(),
@@ -174,7 +190,9 @@ if (orderForm) {
             lastName:  (orderForm.lastName  && orderForm.lastName.value.trim())  || '',
             email:     (orderForm.email     && orderForm.email.value.trim())     || '',
             phone:     (orderForm.phone     && orderForm.phone.value.trim())     || '',
-            productType:       (orderForm.productType       && orderForm.productType.value)       || '',
+            productType: (orderForm.productType && orderForm.productType.value === 'Multiple Items' && checkedItems.length > 0)
+                ? checkedItems.join(', ')
+                : ((orderForm.productType && orderForm.productType.value) || ''),
             quantity:          (orderForm.quantity          && orderForm.quantity.value)           || '',
             sizes:             (orderForm.sizes             && orderForm.sizes.value.trim())       || '',
             colors:            (orderForm.colors            && orderForm.colors.value.trim())      || '',
