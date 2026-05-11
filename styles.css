@@ -353,20 +353,10 @@ h5 { font-size: 0.95rem; font-weight: 600; letter-spacing: 0.06em; text-transfor
     align-items: center;
     justify-content: center;
 }
-.hero-bg-geo svg {
+.hero-geo-logo {
     width: 100%;
     height: auto;
-    position: absolute;
-    top: 0; left: 0;
-    opacity: 0.55;
-}
-.hero-geo-logo {
-    position: relative;
-    z-index: 2;
-    width: 72%;
-    height: auto;
     object-fit: contain;
-    border-radius: 50%;
 }
 
 .hero-content {
