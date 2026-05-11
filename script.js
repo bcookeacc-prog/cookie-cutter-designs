@@ -61,6 +61,7 @@ function addToCart(name, price) {
     } else {
         cart.push({ name, price, qty: 1 });
     }
+    sessionStorage.setItem('ccd_cart', JSON.stringify(cart));
     renderCart();
     const sidebar = document.getElementById('cartSidebar');
     if (sidebar && !sidebar.classList.contains('open')) toggleCart();
@@ -101,6 +102,61 @@ function renderCart() {
     }
 }
 
+// ===== PREFILL ORDER FORM FROM SHOP =====
+document.addEventListener('DOMContentLoaded', () => {
+    const productSelect = document.getElementById('productType');
+    if (!productSelect) return;
+
+    // Check URL param first, then sessionStorage cart
+    const params = new URLSearchParams(window.location.search);
+    const urlProduct = params.get('product');
+    const savedCart = JSON.parse(sessionStorage.getItem('ccd_cart') || '[]');
+
+    let selectedProduct = '';
+    let selectedQty = 1;
+    let cartSummary = '';
+
+    if (urlProduct) {
+        selectedProduct = urlProduct;
+    } else if (savedCart.length > 0) {
+        if (savedCart.length === 1) {
+            selectedProduct = savedCart[0].name;
+            selectedQty = savedCart[0].qty;
+        } else {
+            selectedProduct = 'Multiple Items';
+            selectedQty = savedCart.reduce((s, i) => s + i.qty, 0);
+            cartSummary = savedCart.map(i => `- ${i.name} (qty: ${i.qty})`).join('\n');
+        }
+    }
+
+    if (selectedProduct) {
+        // Pre-fill the dropdown
+        productSelect.value = selectedProduct;
+
+        // Pre-fill quantity
+        const qtyEl = document.getElementById('quantity');
+        if (qtyEl && selectedQty > 1) qtyEl.value = selectedQty;
+
+        // Pre-fill notes with cart list if multiple items
+        if (cartSummary) {
+            const notesEl = document.getElementById('notes');
+            if (notesEl && !notesEl.value) notesEl.value = 'Items selected from shop:\n' + cartSummary;
+        }
+
+        // Show the prefill notice
+        const notice = document.getElementById('prefillNotice');
+        const noticeText = document.getElementById('prefillNoticeText');
+        if (notice && noticeText) {
+            if (selectedProduct === 'Multiple Items') {
+                noticeText.innerHTML = '<strong>Multiple items added from the shop!</strong><p>Your product types and quantities have been pre-filled below. Just add your design details and we\'ll take care of the rest.</p>';
+            } else {
+                noticeText.innerHTML = `<strong>${selectedProduct} selected from the shop!</strong><p>Your product type has been pre-filled below. Just fill in your details and design description and you\'re good to go.</p>`;
+            }
+            notice.style.display = 'flex';
+        }
+    }
+});
+
 // ===== ORDER FORM (contact page) =====
 const orderForm = document.getElementById('orderForm');
 if (orderForm) {
@@ -132,6 +188,7 @@ if (orderForm) {
         const orders = JSON.parse(localStorage.getItem('ccd_orders') || '[]');
         orders.unshift(data);
         localStorage.setItem('ccd_orders', JSON.stringify(orders));
+        sessionStorage.removeItem('ccd_cart');
 
         orderForm.style.display = 'none';
         const successEl = document.getElementById('orderSuccess');

@@ -43,6 +43,13 @@
         <div class="container">
             <div class="order-wrapper">
 
+                <!-- PREFILL NOTICE (shown when coming from shop) -->
+                <div id="prefillNotice" class="prefill-notice" style="display:none">
+                    <div class="prefill-notice-icon">🛍️</div>
+                    <div class="prefill-notice-text" id="prefillNoticeText"></div>
+                    <button class="prefill-notice-close" onclick="this.parentElement.style.display='none'" aria-label="Dismiss">&#x2715;</button>
+                </div>
+
                 <form id="orderForm" class="order-form">
                     <div class="form-row">
                         <div class="form-group">
